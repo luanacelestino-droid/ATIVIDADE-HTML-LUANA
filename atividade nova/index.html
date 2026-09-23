@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<!-- Aqui eu digo que o documento usa HTML5 -->
+<html lang="pt-br">
+<head>
+    <!-- Aqui eu coloco os caracteres especiais como ã e ç -->
+    <meta charset="UTF-8">
+    <!-- Essa parte ajuda a pagina a funcionar em celulares -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Nome que aparece na aba do navegador -->
+    <title>Sistema de Cadastro</title>
+    <style>
+        /* Aqui eu coloco o estilo do corpo da pagina */
+        body {
+            /* Coloquei um fundo escuro */
+            background-color: #202020;
+            /* Tirei a margem padrão */
+            margin: 0;
+            /* Escolhi a fonte Times New Roman */
+            font-family: "Times New Roman", serif;
+        }
+        /* Aqui eu crio a caixa branca do formulario */
+        .container {
+            /* Fundo branco */
+            background-color: white;
+            /* A caixa ocupa 80 porcento da tela */
+            width: 80%;
+            /* Limitei o tamanho da caixa */
+            max-width: 850px;
+            /* Deixei a caixa centralizada */
+            margin: 5px auto;
+            /* Criei espaço dentro da caixa */
+            padding: 10px;
+            /* Coloquei uma altura minima */
+            min-height: 640px;
+        }
+        /* Aqui eu estilizo o titulo principal */
+        h1 {
+            /* Tirei o espaço de cima e deixei um espaço embaixo */
+            margin: 0 0 8px 0;
+            /* Tamanho da letra do titulo */
+            font-size: 26px;
+        }
+        /* Estilo do texto que fica embaixo do titulo */
+        .descricao {
+            /* Espaço embaixo do texto */
+            margin-bottom: 12px;
+            /* Tamanho da letra */
+            font-size: 14px;
+        }
+        /* Aqui eu faço as caixas das seções */
+        fieldset {
+            /* Coloquei uma borda cinza */
+            border: 1px solid #aeb4bb;
+            /* Espaço entre as caixas */
+            margin-bottom: 10px;
+            /* Espaço dentro da caixa */
+            padding: 8px;
+        }
+        /* Titulo das caixas */
+        legend {
+            /* Deixei o texto em negrito */
+            font-weight: bold;
+            /* Espaço nas laterais */
+            padding: 0 4px;
+        }
+        /* Aqui eu organizo os campos em duas colunas */
+        .linha {
+            /* Usei grid para organizar os campos */
+            display: grid;
+            /* Criei duas colunas do mesmo tamanho */
+            grid-template-columns: 1fr 1fr;
+            /* Espaço entre as colunas */
+            gap: 16px;
+            /* Espaço embaixo da linha */
+            margin-bottom: 9px;
+        }
+        /* Essa classe serve para campos maiores */
+        .campo-completo {
+            /* Espaço embaixo do campo */
+            margin-bottom: 9px;
+        }
+        /* Aqui eu estilizo os nomes dos campos */
+        label {
+            /* O texto fica em uma linha separada */
+            display: block;
+            /* Deixei o texto em negrito */
+            font-weight: bold;
+            /* Tamanho da letra */
+            font-size: 13px;
+            /* Espaço entre o nome e o campo */
+            margin-bottom: 3px;
+        }
+        /* Aqui eu deixo o asterisco vermelho */
+        .obrigatorio {
+            color: red;
+        }
+        /* Estilo dos campos de texto e das listas */
+        input,
+        select {
+            /* Faz o tamanho incluir a borda e o espaço interno */
+            box-sizing: border-box;
+            /* Os campos ocupam toda a largura disponivel */
+            width: 100%;
+            /* Altura dos campos */
+            height: 20px;
+            /* Borda cinza */
+            border: 1px solid #aeb4bb;
+            /* Espaço dentro do campo */
+            padding: 2px 5px;
+            /* Fonte que eu escolhi */
+            font-family: "Times New Roman", serif;
+            /* Tamanho da letra */
+            font-size: 12px;
+        }
+        /* Ajuste no campo de data */
+        input[type="date"] {
+            padding-right: 2px;
+        }
+        /* Ajuste nos campos de senha */
+        input[type="password"] {
+            height: 21px;
+        }
+        /* Aqui eu organizo a parte dos termos */
+        .termos {
+            /* Tamanho da letra */
+            font-size: 13px;
+            /* Espaço em cima e embaixo */
+            margin: 10px 0;
+            /* Coloquei os elementos lado a lado */
+            display: flex;
+            /* Alinhei os elementos no centro */
+            align-items: center;
+            /* Espaço entre a caixa e o texto */
+            gap: 5px;
+        }
+        /* Ajuste no checkbox dos termos */
+        .termos input {
+            /* Não deixei ele ocupar toda a largura */
+            width: auto;
+            /* Altura automatica */
+            height: auto;
+        }
+        /* Cor dos links dos termos */
+        .termos a {
+            color: blue;
+        }
+        /* Aqui eu estilizo o botão */
+        button {
+            /* Espaço dentro do botão */
+            padding: 3px 10px;
+            /* Fonte do botão */
+            font-family: "Times New Roman", serif;
+            /* Tamanho da letra */
+            font-size: 13px;
+            /* Quando passar o mouse aparece uma mãozinha */
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <!-- Aqui começa a parte que aparece na pagina -->
+    <div class="container">
+        <!-- Titulo principal do cadastro -->
+        <h1>Sistema de Cadastro</h1>
+        <!-- Texto explicando o que o usuario deve fazer -->
+        <p class="descricao">
+            Preencha todos os campos abaixo para concluir seu cadastro.
+        </p>
+        <!-- Aqui começa a parte dos dados pessoais -->
+        <fieldset>
+            <!-- Nome da primeira seção -->
+            <legend>Dados Pessoais</legend>
+            <!-- Primeira linha de campos -->
+            <div class="linha">
+                <!-- Campo para colocar o nome -->
+                <div>
+                    <label>
+                        Nome completo
+                        <span class="obrigatorio">*</span>
+                    </label>
+                    <!-- Aqui eu crio um campo para escrever o nome -->
+                    <input type="text" placeholder="Digite seu nome completo">
+                </div>
+                <!-- Campo para colocar a data de nascimento -->
+                <div>
+                    <label>
+                        Data de nascimento
+                        <span class="obrigatorio">*</span>
+                    </label>
+                    <!-- Usei date para aparecer um campo de data -->
+                    <input type="date">
+                </div>
+            </div>
+            <!-- Segunda linha de campos -->
+            <div class="linha">
+                <!-- Campo do CPF -->
+                <div>
+                    <label>
+                        CPF
+                        <span class="obrigatorio">*</span>
+                    </label>
+                    <!-- Coloquei um exemplo de CPF no campo -->
+                    <input type="text" placeholder="000.000.000-00">
+                </div>
+                <!-- Campo do RG -->
+                <div>
+                    <label>
+                        RG
+                        <span class="obrigatorio">*</span>
+                    </label>
+                    <!-- Campo para digitar o RG -->
+                    <input type="text" placeholder="Digite seu RG">
+                </div>
+            </div>
+            <!-- Terceira linha com o campo sexo -->
+            <div class="linha">
+                <div>
+                    <label>
+                        Sexo
+                        <span class="obrigatorio">*</span>
+                    </label>
+                    <!-- Aqui eu crio uma lista de opções -->
+                    <select>
+                        <option>Selecione</option>
+                        <option>Masculino</option>
+                        <option>Feminino</option>
+                    </select>
+                </div>
+            </div>
+        </fieldset>
+        <!-- Aqui começa a seção de contato -->
+        <fieldset>
+            <legend>Contato</legend>
+            <!-- Campos de email e telefone -->
+            <div class="linha">
+                <!-- Campo de email -->
+                <div>
+                    <label>
+                        E-mail
+                        <span class="obrigatorio">*</span>
+                    </label>
+                    <!-- Usei email para o campo de correio eletronico -->
+                    <input type="email" placeholder="exemplo@dominio.com">
+                </div>
+                <!-- Campo de telefone -->
+                <div>
+                    <label>
+                        Telefone
+                        <span class="obrigatorio">*</span>
+                    </label>
+                    <!-- Aqui eu coloco o campo de telefone -->
+                    <input type="tel" placeholder="(99) 99999-9999">
+                </div>
+            </div>
+            <!-- Campo de endereço -->
+            <div class="campo-completo">
+                <label>
+                    Endereço
+                    <span class="obrigatorio">*</span>
+                </label>
+                <!-- Esse campo ocupa toda a largura -->
+                <input type="text" placeholder="Digite seu endereço completo">
+            </div>
+            <!-- Campos de cidade e estado -->
+            <div class="linha">
+                <!-- Campo da cidade -->
+                <div>
+                    <label>Cidade</label>
+                    <input type="text" placeholder="Digite sua cidade">
+                </div>
+                <!-- Campo do estado -->
+                <div>
+                    <label>Estado</label>
+                    <select>
+                        <option>Selecione</option>
+                        <option>AC</option>
+                        <option>AL</option>
+                        <option>AP</option>
+                        <option>AM</option>
+                        <option>BA</option>
+                        <option>CE</option>
+                        <option>DF</option>
+                        <option>ES</option>
+                        <option>GO</option>
+                        <option>MA</option>
+                        <option>MT</option>
+                        <option>MS</option>
+                        <option>MG</option>
+                        <option>PA</option>
+                        <option>PB</option>
+                        <option>PR</option>
+                        <option>PE</option>
+                        <option>PI</option>
+                        <option>RJ</option>
+                        <option>RN</option>
+                        <option>RS</option>
+                        <option>RO</option>
+                        <option>RR</option>
+                        <option>SC</option>
+                        <option>SP</option>
+                        <option>SE</option>
+                        <option>TO</option>
+                    </select>
+                </div>
+            </div>
+        </fieldset>
+        <!-- Aqui começa a parte de acesso -->
+        <fieldset>
+            <legend>Acesso</legend>
+            <div class="linha">
+                <!-- Campo da senha -->
+                <div>
+                    <label>
+                        Senha
+                        <span class="obrigatorio">*</span>
+                    </label>
+                    <!-- O tipo password esconde os caracteres digitados -->
+                    <input type="password" placeholder="Digite sua senha">
+                </div>
+                <!-- Campo para confirmar a senha -->
+                <div>
+                    <label>
+                        Confirme a senha
+                        <span class="obrigatorio">*</span>
+                    </label>
+                    <!-- Esse campo serve para repetir a senha -->
+                    <input type="password" placeholder="Repita sua senha">
+                </div>
+            </div>
+        </fieldset>
+        <!-- Seção de informações adicionais -->
+        <fieldset>
+            <legend>Informações Adicionais</legend>
+            <div class="linha">
+                <!-- Campo da profissão -->
+                <div>
+                    <label>Profissão</label>
+                    <input type="text" placeholder="Digite sua profissão">
+                </div>
+                <!-- Campo para saber como conheceu o site -->
+                <div>
+                    <label>Como você nos conheceu?</label>
+                    <select>
+                        <option>Selecione</option>
+                        <option>Instagram</option>
+                        <option>Facebook</option>
+                        <option>Google</option>
+                        <option>Amigos</option>
+                        <option>Outros</option>
+                    </select>
+                </div>
+            </div>
+        </fieldset>
+        <!-- Aqui eu coloco os termos de uso -->
+        <div class="termos">
+            <!-- Checkbox para marcar que aceitou os termos -->
+            <input type="checkbox">
+            <span>
+                Li e aceito os
+                <a href="#">termos de uso</a>
+                e a
+                <a href="#">política de privacidade</a>.
+            </span>
+        </div>
+        <!-- Botão para cadastrar -->
+        <button type="submit">Cadastrar</button>
+    </div>
+</body>
+</html>
